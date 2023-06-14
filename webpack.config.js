@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/components/root/index.tsx',
+    entry: './src/app/components/root/index.tsx',
     output: {
         path: path.resolve(__dirname, './root'),
         filename: 'index_bundle.js',
@@ -14,7 +14,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'My React App',
-            template: './src/components/root/index.html'
+            template: './src/app/components/root/index.html'
         })
     ],
     module: {
