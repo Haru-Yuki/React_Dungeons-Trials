@@ -29,7 +29,7 @@ const Main = () => {
                 padding: '0 70px 50px'
             }}>
                 {DutyCardsMock.map((dutyCard: Duty) =>
-                    <Grid key={dutyCard.dutyKey} item xs={6} md={4} lg={4}>
+                    <Grid key={dutyCard.dutyKey} item xs={6} md={4} lg={4} xl={3}>
                         <DutyCard
                             dutyType={dutyCard.dutyType}
                             name={dutyCard.name}
