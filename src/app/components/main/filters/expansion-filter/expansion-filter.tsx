@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import {Tab, Tabs} from "@mui/material";
 import {ExpansionFilterModel} from "../../../../models/filters.model";
+
 const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) => {
+    const { expansionFilter } = props;
     const [value, setValue] = useState(props.expansionFilter[0].value);
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
@@ -14,7 +16,7 @@ const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) 
             textColor="primary"
             indicatorColor="primary"
         >
-        {props.expansionFilter.map((filter) =>
+        {expansionFilter.map((filter) =>
             <Tab key={filter.key} value={filter.value} label={filter.filterName} sx={{
                 color: 'text.primary'
             }} />

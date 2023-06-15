@@ -1,6 +1,6 @@
 import ExpansionFilter from "./filters/expansion-filter/expansion-filter";
 import styles from "../../../styles/components/main/main.module.scss";
-import {ExpansionFilterMock, DutiesFilterMock, SortFilterMock, DutyCardsMock} from "../../mocks/mocks";
+import {DutiesFilterMock, DutyCardsMock, ExpansionFilterMock, SortFilterMock} from "../../mocks/mocks";
 import DutiesFilter from "./filters/duties-filter/duties-filter";
 import SortFilter from "./filters/sort-filter/sort-filter";
 import {Grid} from "@mui/material";
@@ -18,7 +18,7 @@ const Main = () => {
                 top: '10px',
                 background: 'black',
                 boxShadow: '0 5px 10px 20px black',
-                zIndex: '10'
+                zIndex: '1'
             }}>
                 <DutiesFilter dutiesFilter={DutiesFilterMock} />
                 <ExpansionFilter expansionFilter={ExpansionFilterMock} />

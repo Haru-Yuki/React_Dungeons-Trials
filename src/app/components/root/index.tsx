@@ -8,7 +8,7 @@ import Footer from "../footer/footer";
 const darkTheme = createTheme({
     palette: {
             mode: 'dark',
-    },
+    }
 });
 const Index = () => {
     return (

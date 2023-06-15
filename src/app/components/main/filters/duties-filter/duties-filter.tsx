@@ -1,10 +1,11 @@
-import {FormControl, InputLabel, MenuItem, Select, Tab} from "@mui/material";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {SelectChangeEvent} from "@mui/material/Select";
 import {DutiesFilterModel} from "../../../../models/filters.model";
 import React, {useState} from "react";
 
 const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
-    const [value, setValue] = useState(props.dutiesFilter[0].value);
+    const { dutiesFilter } = props;
+    const [value, setValue] = useState(dutiesFilter[0].value);
     const handleChange = (event: SelectChangeEvent) => {
         setValue(event.target.value);
     };
@@ -19,7 +20,7 @@ const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
                 label="Choose a Duty"
                 onChange={handleChange}
             >
-                {props.dutiesFilter.map((duty) =>
+                {dutiesFilter.map((duty) =>
                     <MenuItem key={duty.key} value={duty.value}>{duty.dutyType}</MenuItem>
                 )};
             </Select>

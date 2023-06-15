@@ -6,7 +6,9 @@ import {
     CardActions,
     CardContent,
     CardMedia,
-    Collapse, IconButton, IconButtonProps,
+    Collapse,
+    IconButton,
+    IconButtonProps,
     styled,
     Typography
 } from "@mui/material";
@@ -29,6 +31,13 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 const DutyCard = (props: Duty) => {
+    const {
+        name,
+        imageLink,
+        patchName,
+        level,
+        description
+    } = props;
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
@@ -43,18 +52,18 @@ const DutyCard = (props: Duty) => {
                 <CardMedia
                     component="img"
                     height="250"
-                    image={props.imageLink}
-                    alt={props.name}
+                    image={imageLink}
+                    alt={name}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h4" sx={{textAlign: 'center'}}>
-                        {props.name}
+                        {name}
                     </Typography>
                     <Typography paragraph sx={{float: 'right'}}>
-                        Level: {props.level}
+                        Level: {level}
                     </Typography>
                     <Typography paragraph>
-                        Patch: {props.patchName}
+                        Patch: {patchName}
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -64,8 +73,6 @@ const DutyCard = (props: Duty) => {
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
                 >
                     <ExpandMoreIcon />
                 </ExpandMore>
@@ -73,7 +80,7 @@ const DutyCard = (props: Duty) => {
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>
-                        {props.description}
+                        {description}
                     </Typography>
                 </CardContent>
             </Collapse>

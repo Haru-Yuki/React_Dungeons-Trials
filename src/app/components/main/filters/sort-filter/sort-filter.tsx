@@ -4,6 +4,7 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {SortModel} from "../../../../models/filters.model";
 
 const SortFilter = (props: {sortFilter: Array<SortModel>}) => {
+    const { sortFilter } = props;
     const [value, setValue] = useState(props.sortFilter[0].value);
     const handleChange = (event: SelectChangeEvent) => {
         setValue(event.target.value);
@@ -19,7 +20,7 @@ const SortFilter = (props: {sortFilter: Array<SortModel>}) => {
                 label="Sort By: "
                 onChange={handleChange}
             >
-                {props.sortFilter.map((sortOption) =>
+                {sortFilter.map((sortOption) =>
                     <MenuItem key={sortOption.key} value={sortOption.value}>{sortOption.sortOption}</MenuItem>
                 )};
             </Select>
