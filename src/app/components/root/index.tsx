@@ -4,21 +4,25 @@ import '../../../styles/components/root/index.scss';
 import {createTheme, ThemeProvider} from "@mui/material";
 import Main from "../main/main";
 import Footer from "../footer/footer";
+import {Provider} from "react-redux";
+import store from "../../redux/store";
 
 const darkTheme = createTheme({
     palette: {
             mode: 'dark',
     }
 });
+
 const Index = () => {
     return (
-        <ThemeProvider theme={darkTheme}>
-            <Header />
-            <Main />
-            <Footer />
-        </ThemeProvider>
+        <Provider store={store}>
+            <ThemeProvider theme={darkTheme}>
+                <Header />
+                <Main />
+                <Footer />
+            </ThemeProvider>
+        </Provider>
     )
 }
 
-const root = createRoot(document.getElementById('root'));
-root.render(<Index />);
+createRoot(document.getElementById('root')).render(<Index />);

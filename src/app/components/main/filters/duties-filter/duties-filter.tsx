@@ -1,14 +1,32 @@
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {SelectChangeEvent} from "@mui/material/Select";
 import {DutiesFilterModel} from "../../../../models/filters.model";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setDutiesFilter} from "../../../../redux/reducers/filters/filters";
 
 const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
     const { dutiesFilter } = props;
-    const [value, setValue] = useState(dutiesFilter[0].value);
+
+    const dispatch = useDispatch();
+    const storeDutiesFilter = useSelector((state: any) => state.filters.dutyFilter);
+    const [value, setValue] = useState(storeDutiesFilter);
+
+    useEffect(() => {
+        setValue(storeDutiesFilter);
+    }, [storeDutiesFilter]);
+
     const handleChange = (event: SelectChangeEvent) => {
-        setValue(event.target.value);
-    };
+        const value = event.target.value;
+
+        setValue(value);
+        saveDutiesFilter(value);
+    }
+
+    const saveDutiesFilter = (value: string) => {
+        sessionStorage.setItem('dutiesFilter', value);
+        dispatch(setDutiesFilter(value));
+    }
 
     return (
         <FormControl required sx={{ m: 1, minWidth: 180 }}>

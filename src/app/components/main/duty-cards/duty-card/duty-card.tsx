@@ -1,4 +1,4 @@
-import Duty from "../../../models/duty.model";
+import Duty from "../../../../models/duty.model";
 import {
     Button,
     Card,
