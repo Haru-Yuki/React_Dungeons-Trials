@@ -9,14 +9,17 @@ const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) 
 
     const dispatch = useDispatch();
     const storeExpansionFilter = useSelector((state: any) => state.filters.expansionFilter);
+    const isReset = useSelector((state: any) => state.filters.isReset);
     const isDutySelected = useSelector((state: any) => !!state.filters.dutyFilter);
     const [value, setValue] = useState(storeExpansionFilter);
 
     useEffect(() => {
-        setValue(storeExpansionFilter);
-    }, [storeExpansionFilter]);
+        if (isReset) {
+            setValue(storeExpansionFilter);
+        }
+    }, [isReset, storeExpansionFilter]);
 
-    const handleChange = (event: React.SyntheticEvent | null, newValue: string) => {
+    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
         saveExpansionFilter(newValue);
     }
@@ -28,10 +31,16 @@ const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) 
 
     return (
         <Tabs
+            sx = {{
+                maxWidth: 'calc(100vw - 650px)',
+                color: 'white'
+            }}
             value={value}
             onChange={handleChange}
             textColor="primary"
             indicatorColor="primary"
+            variant="scrollable"
+            scrollButtons="auto"
         >
         {expansionFilter.map((filter) =>
             <Tab disabled={!isDutySelected} key={filter.key} value={filter.value} label={filter.filterName} sx={{

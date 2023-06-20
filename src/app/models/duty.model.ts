@@ -5,5 +5,7 @@ export default interface Duty {
     imageLink: string,
     patchName: string,
     level: number,
-    description: string
+    description: string,
+    completed: boolean,
+    favourite: boolean
 }

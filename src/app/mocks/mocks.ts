@@ -75,7 +75,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: false
     },
     {
         dutyKey: 'duty2',
@@ -84,7 +86,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: true
     },
     {
         dutyKey: 'duty3',
@@ -93,7 +97,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: true,
+        favourite: true
     },
     {
         dutyKey: 'duty4',
@@ -102,7 +108,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: true,
+        favourite: false
     },
     {
         dutyKey: 'duty5',
@@ -111,7 +119,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: true,
+        favourite: false
     },
     {
         dutyKey: 'duty6',
@@ -120,7 +130,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: true
     },
     {
         dutyKey: 'duty7',
@@ -129,7 +141,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: false
     },
     {
         dutyKey: 'duty8',
@@ -138,7 +152,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: false
     },
     {
         dutyKey: 'duty9',
@@ -147,7 +163,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: false
     },
     {
         dutyKey: 'duty10',
@@ -156,7 +174,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: true
     },
     {
         dutyKey: 'duty11',
@@ -165,7 +185,9 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: true,
+        favourite: false
     },
     {
         dutyKey: 'duty12',
@@ -174,6 +196,8 @@ export const DutyCardsMock = [
         imageLink: 'https://i.imgur.com/Qo4TszB.png',
         patchName: 'ARR',
         level: 15,
-        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?'
+        description: 'After a period of relative silence following the Calamity, the Serpent Reavers have once again taken to terrorizing the inland hamlets of La Noscea, killing the men, kidnapping the women and children, plundering the storehouses and burning what little they leave behind. For years, it was not known how the pirates were able to raid areas so far from the coast, until a local shepherd sighted a band of painted ruffians entering the Sastasha Seagrot, carrying large quantities of sacks and crates. Could it be that there is more to this cave than meets the eye?',
+        completed: false,
+        favourite: false
     }
 ];

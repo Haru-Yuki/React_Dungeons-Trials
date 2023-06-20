@@ -10,12 +10,15 @@ const SortFilter = (props: {sortFilter: Array<SortModel>}) => {
 
     const dispatch = useDispatch();
     const storeSortFilter = useSelector((state: any) => state.filters.sortFilter);
+    const isReset = useSelector((state: any) => state.filters.isReset);
     const isDutySelected = useSelector((state: any) => !!state.filters.dutyFilter);
     const [value, setValue] = useState(storeSortFilter);
 
     useEffect(() => {
-        setValue(storeSortFilter);
-    }, [storeSortFilter]);
+        if (isReset) {
+            setValue(storeSortFilter);
+        }
+    }, [isReset, storeSortFilter]);
 
     const handleChange = (event: SelectChangeEvent) => {
         const value = event.target.value;

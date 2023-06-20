@@ -4,7 +4,8 @@ import {SESSION_STORAGE_KEYS} from "../../../constants/constants";
 const filtersInitialState = {
     dutyFilter: sessionStorage.getItem(SESSION_STORAGE_KEYS.FILTERS.DUTIES_FILTER) || '',
     expansionFilter: sessionStorage.getItem(SESSION_STORAGE_KEYS.FILTERS.EXPANSION_FILTER) || 'ALL',
-    sortFilter: sessionStorage.getItem(SESSION_STORAGE_KEYS.FILTERS.SORT_FILTER) || 'lvlDesc'
+    sortFilter: sessionStorage.getItem(SESSION_STORAGE_KEYS.FILTERS.SORT_FILTER) || 'lvlDesc',
+    isReset: false
 }
 
 export const filtersSlice = createSlice({
@@ -12,29 +13,25 @@ export const filtersSlice = createSlice({
     initialState: filtersInitialState,
     reducers: {
         setDutiesFilter(state, action) {
-            state.dutyFilter = action.payload
+            state.dutyFilter = action.payload;
+            state.isReset = false;
         },
         setExpansionFilter(state, action) {
-            state.expansionFilter = action.payload
+            state.expansionFilter = action.payload;
+            state.isReset = false;
         },
         setSortFilter(state, action) {
-            state.sortFilter = action.payload
+            state.sortFilter = action.payload;
+            state.isReset = false;
         },
         resetAllFilters(state) {
-            resetFiltersStorage();
-
-            state.dutyFilter = filtersInitialState.dutyFilter;
-            state.expansionFilter = filtersInitialState.expansionFilter;
-            state.sortFilter = filtersInitialState.sortFilter;
+            state.dutyFilter = '';
+            state.expansionFilter = 'ALL';
+            state.sortFilter = 'lvlDesc';
+            state.isReset = true;
         }
     }
 });
-
-const resetFiltersStorage = () => {
-    sessionStorage.removeItem(SESSION_STORAGE_KEYS.FILTERS.DUTIES_FILTER);
-    sessionStorage.removeItem(SESSION_STORAGE_KEYS.FILTERS.EXPANSION_FILTER);
-    sessionStorage.removeItem(SESSION_STORAGE_KEYS.FILTERS.SORT_FILTER);
-};
 
 const { actions, reducer } = filtersSlice;
 

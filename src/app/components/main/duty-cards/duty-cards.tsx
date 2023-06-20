@@ -18,6 +18,8 @@ const DutyCards = () => {
                         patchName={dutyCard.patchName}
                         level={dutyCard.level}
                         description={dutyCard.description}
+                        completed={dutyCard.completed}
+                        favourite={dutyCard.favourite}
                     />
                 </Grid>
             )}

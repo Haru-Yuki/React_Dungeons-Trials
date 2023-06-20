@@ -10,11 +10,14 @@ const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
 
     const dispatch = useDispatch();
     const storeDutiesFilter = useSelector((state: any) => state.filters.dutyFilter);
+    const isReset = useSelector((state: any) => state.filters.isReset);
     const [value, setValue] = useState(storeDutiesFilter);
 
     useEffect(() => {
-        setValue(storeDutiesFilter);
-    }, [storeDutiesFilter]);
+        if (isReset) {
+            setValue(storeDutiesFilter);
+        }
+    }, [isReset, storeDutiesFilter]);
 
     const handleChange = (event: SelectChangeEvent) => {
         const value = event.target.value;

@@ -30,23 +30,31 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
 }));
 
+const isLoggedIn = false;
+
 const DutyCard = (props: Duty) => {
     const {
         name,
         imageLink,
         patchName,
         level,
-        description
+        description,
+        completed,
+        favourite
     } = props;
+
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
-    };
+    }
+
+    const cardBorder = isLoggedIn && completed ? '1px solid green' : 'none';
 
     return (
         <Card sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.8)'
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            border: cardBorder
         }}>
             <CardActionArea>
                 <CardMedia
@@ -68,8 +76,12 @@ const DutyCard = (props: Duty) => {
                 </CardContent>
             </CardActionArea>
             <CardActions sx={{justifyContent: 'space-evenly'}}>
-                <Button variant="outlined" color="success" size="small">Mark as completed</Button>
-                <Button variant="outlined" color="warning" size="small">Mark as favourite</Button>
+                {isLoggedIn &&
+                    <>
+                        <Button variant={completed ? "contained" : "outlined"} color="success" size="small">Mark as completed</Button>
+                        <Button variant={favourite ? "contained" : "outlined"} color="warning" size="small">Mark as favourite</Button>
+                    </>
+                }
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
