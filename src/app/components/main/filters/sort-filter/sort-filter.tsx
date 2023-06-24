@@ -4,31 +4,26 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {SortModel} from "../../../../models/filters.model";
 import {useDispatch, useSelector} from "react-redux";
 import {setSortFilter} from "../../../../redux/reducers/filters/filters";
+import {useSearchParams} from "react-router-dom";
 
 const SortFilter = (props: {sortFilter: Array<SortModel>}) => {
     const { sortFilter } = props;
 
     const dispatch = useDispatch();
-    const storeSortFilter = useSelector((state: any) => state.filters.sortFilter);
-    const isReset = useSelector((state: any) => state.filters.isReset);
+    const sortQuery = useSearchParams()[0].get('sort');
     const isDutySelected = useSelector((state: any) => !!state.filters.dutyFilter);
-    const [value, setValue] = useState(storeSortFilter);
+    const [value, setValue] = useState(sortQuery || 'asc');
 
     useEffect(() => {
-        if (isReset) {
-            setValue(storeSortFilter);
-        }
-    }, [isReset, storeSortFilter]);
+        handleSortFilter(sortQuery || 'asc');
+    },[sortQuery]);
 
     const handleChange = (event: SelectChangeEvent) => {
-        const value = event.target.value;
-
-        setValue(value);
-        saveSortFilter(value);
+        handleSortFilter(event.target.value);
     }
 
-    const saveSortFilter = (value: string) => {
-        sessionStorage.setItem('sortFilter', value);
+    const handleSortFilter = (value: string) => {
+        setValue(value);
         dispatch(setSortFilter(value));
     }
 

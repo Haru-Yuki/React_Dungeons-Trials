@@ -1,3 +1,9 @@
+export interface FiltersStoreModel {
+    dutyFilter: string,
+    expansionFilter: boolean,
+    sortFilter: string
+}
+
 export interface ExpansionFilterModel {
     filterName: string,
     value: string,

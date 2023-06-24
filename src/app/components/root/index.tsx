@@ -6,6 +6,7 @@ import Main from "../main/main";
 import Footer from "../footer/footer";
 import {Provider} from "react-redux";
 import store from "../../redux/store";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 const darkTheme = createTheme({
     palette: {
@@ -13,16 +14,21 @@ const darkTheme = createTheme({
     }
 });
 
-const Index = () => {
-    return (
-        <Provider store={store}>
-            <ThemeProvider theme={darkTheme}>
-                <Header />
-                <Main />
-                <Footer />
-            </ThemeProvider>
-        </Provider>
-    )
-}
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: (
+            <Provider store={store}>
+                <ThemeProvider theme={darkTheme}>
+                    <Header />
+                    <Main />
+                    <Footer />
+                </ThemeProvider>
+            </Provider>
+        )
+    }
+]);
 
-createRoot(document.getElementById('root')).render(<Index />);
+createRoot(document.getElementById('root')).render(
+    <RouterProvider router={router} />
+);

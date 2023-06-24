@@ -38,6 +38,7 @@ const DutyCard = (props: Duty) => {
         imageLink,
         patchName,
         level,
+        iLevel,
         description,
         completed,
         favourite
@@ -62,13 +63,23 @@ const DutyCard = (props: Duty) => {
                     height="250"
                     image={imageLink}
                     alt={name}
+                    sx={{
+                        width: '108%'
+                    }}
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h4" sx={{textAlign: 'center'}}>
+                    <Typography gutterBottom variant='h5' sx={{
+                        textAlign: 'center',
+                        minHeight: '60px',
+                        marginBottom: '10px'
+                    }}>
                         {name}
                     </Typography>
                     <Typography paragraph sx={{float: 'right'}}>
                         Level: {level}
+                    </Typography>
+                    <Typography paragraph sx={{float: 'right', marginRight: '10px'}}>
+                        IL: {iLevel ? iLevel: '-'}
                     </Typography>
                     <Typography paragraph>
                         Patch: {patchName}

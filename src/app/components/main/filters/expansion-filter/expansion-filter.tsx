@@ -3,29 +3,26 @@ import {Tab, Tabs} from "@mui/material";
 import {ExpansionFilterModel} from "../../../../models/filters.model";
 import {useDispatch, useSelector} from "react-redux";
 import {setExpansionFilter} from "../../../../redux/reducers/filters/filters";
+import {useSearchParams} from "react-router-dom";
 
 const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) => {
     const { expansionFilter } = props;
 
     const dispatch = useDispatch();
-    const storeExpansionFilter = useSelector((state: any) => state.filters.expansionFilter);
-    const isReset = useSelector((state: any) => state.filters.isReset);
+    const expansionQuery = useSearchParams()[0].get('expansion');
     const isDutySelected = useSelector((state: any) => !!state.filters.dutyFilter);
-    const [value, setValue] = useState(storeExpansionFilter);
+    const [value, setValue] = useState(expansionQuery || false);
 
     useEffect(() => {
-        if (isReset) {
-            setValue(storeExpansionFilter);
-        }
-    }, [isReset, storeExpansionFilter]);
+        handleExpansionFilter(expansionQuery || false);
+    }, [expansionQuery]);
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-        setValue(newValue);
-        saveExpansionFilter(newValue);
+        handleExpansionFilter(newValue);
     }
 
-    const saveExpansionFilter = (value: string) => {
-        sessionStorage.setItem('expansionFilter', value);
+    const handleExpansionFilter = (value: string | false) => {
+        setValue(value);
         dispatch(setExpansionFilter(value));
     }
 

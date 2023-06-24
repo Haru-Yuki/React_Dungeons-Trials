@@ -4,30 +4,25 @@ import {DutiesFilterModel} from "../../../../models/filters.model";
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setDutiesFilter} from "../../../../redux/reducers/filters/filters";
+import {useSearchParams} from "react-router-dom";
 
 const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
     const { dutiesFilter } = props;
 
     const dispatch = useDispatch();
-    const storeDutiesFilter = useSelector((state: any) => state.filters.dutyFilter);
-    const isReset = useSelector((state: any) => state.filters.isReset);
-    const [value, setValue] = useState(storeDutiesFilter);
+    const dutyQuery = useSearchParams()[0].get('duty');
+    const [value, setValue] = useState(dutyQuery || '');
 
     useEffect(() => {
-        if (isReset) {
-            setValue(storeDutiesFilter);
-        }
-    }, [isReset, storeDutiesFilter]);
+        handleDutyFilter(dutyQuery || '');
+    },[dutyQuery]);
 
     const handleChange = (event: SelectChangeEvent) => {
-        const value = event.target.value;
-
-        setValue(value);
-        saveDutiesFilter(value);
+        handleDutyFilter(event.target.value);
     }
 
-    const saveDutiesFilter = (value: string) => {
-        sessionStorage.setItem('dutiesFilter', value);
+    const handleDutyFilter = (value: string) => {
+        setValue(value);
         dispatch(setDutiesFilter(value));
     }
 
