@@ -2,7 +2,6 @@ import {Button} from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 import {resetAllFilters} from "../../../../redux/reducers/filters/filters";
 import {useDispatch, useSelector} from "react-redux";
-import {SESSION_STORAGE_KEYS} from "../../../../constants/constants";
 import {useSearchParams} from "react-router-dom";
 
 

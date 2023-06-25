@@ -1,18 +1,10 @@
 const Dungeons = require('../../../models/duties/dungeons/dungeons');
+const duties = require("../duties");
 
 exports.getAllDungeons = async (req, res) => {
-    let duties;
-    const {expansion, sort} = req.query;
-
-    if (expansion === 'ALL') {
-        duties = await Dungeons
-            .find()
-            .sort({level: sort, iLevel: sort});
+    if (req.query.name) {
+        return duties.getDutiesByName(req, res, Dungeons);
     } else {
-        duties = await Dungeons
-            .find({patchName: expansion})
-            .sort({level: sort, iLevel: sort});
+        return duties.getAllDuties(req, res, Dungeons);
     }
-
-    res.json(duties);
 };

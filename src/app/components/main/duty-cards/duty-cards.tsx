@@ -1,7 +1,7 @@
 import Duty from "../../../models/duty.model";
 import {Grid} from "@mui/material";
 import DutyCard from "./duty-card/duty-card";
-import {getAllDutiesAPI} from "../../../api/duties-api/duties-api";
+import {getAllDutiesAPI, getDutiesByNameAPI} from "../../../api/duties-api/duties-api";
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import DutyCardsEmpty from "./duty-cards-empty/duty-cards-empty";
@@ -23,9 +23,18 @@ const DutyCards = () => {
                 sort: storeFilters.sortFilter
             })
 
-            getAllDutiesAPI(storeFilters).then((data: AxiosResponse<Duty[]>) => {
-                setDuties(data.data);
-            })
+            if (storeFilters.searchFilter) {
+                searchParams.set('search', storeFilters.searchFilter);
+                setSearchParams(searchParams);
+
+                getDutiesByNameAPI(storeFilters).then((data: AxiosResponse<Duty[]>) => {
+                    setDuties(data.data);
+                })
+            } else {
+                getAllDutiesAPI(storeFilters).then((data: AxiosResponse<Duty[]>) => {
+                    setDuties(data.data);
+                })
+            }
         }
     }, [storeFilters]);
 

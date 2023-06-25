@@ -1,4 +1,5 @@
 export interface FiltersStoreModel {
+    searchFilter?: string,
     dutyFilter: string,
     expansionFilter: boolean,
     sortFilter: string
