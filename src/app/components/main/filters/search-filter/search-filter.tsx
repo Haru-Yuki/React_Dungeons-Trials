@@ -1,21 +1,20 @@
 import {Grid, InputAdornment, TextField} from "@mui/material";
 import {ChangeEvent, useEffect, useState} from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import {useDispatch, useSelector} from "react-redux";
-import {setSearchFilter} from "../../../../redux/reducers/filters/filters";
 import {useSearchParams} from "react-router-dom";
 
 const SearchFilter = () => {
-    const dispatch = useDispatch();
-    const searchQuery = useSearchParams()[0].get('search');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const searchQuery = searchParams.get('search');
     const [value, setValue] = useState(searchQuery || '');
-    const storeFilters = useSelector((state: any) => state.filters);
 
-    const isFiltersSelected = storeFilters.dutyFilter !== '' && storeFilters.expansionFilter;
+    const [timer, setTimer] = useState(null);
+
+    const isFiltersSelected = searchParams.get('duty') && searchParams.get('expansion') && searchParams.get('sort');
 
     useEffect(() => {
-        handleSearchFilter(searchQuery || '');
-    }, [searchQuery]);
+        handleSearchFilter(value);
+    }, [value]);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         handleSearchFilter(event.target.value);
@@ -23,7 +22,19 @@ const SearchFilter = () => {
 
     const handleSearchFilter = (value: string) => {
         setValue(value);
-        dispatch(setSearchFilter(value));
+
+        clearTimeout(timer);
+
+        const timerId = setTimeout(() => {
+            if (value) {
+                searchParams.set('name', value);
+            } else {
+                searchParams.delete('name');
+            }
+            setSearchParams(searchParams);
+        }, 1000);
+
+        setTimer(timerId);
     }
 
     return (
@@ -31,7 +42,7 @@ const SearchFilter = () => {
             <TextField
                 disabled={!isFiltersSelected}
                 id="outlined-controlled"
-                label="Search a duty"
+                label="Enter duty name"
                 value={value}
                 onChange={handleChange}
                 InputProps={{

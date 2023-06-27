@@ -1,4 +1,4 @@
-import {Alert, Typography} from "@mui/material";
+import {Alert} from "@mui/material";
 import styles from '../../../../../styles/components/main/duty-cards/duty-cards-empty/duty-cards-empty.module.scss';
 
 const DutyCardsEmpty = () => {

@@ -1,26 +1,21 @@
 module.exports.getAllDuties = async (req, res, dutyModel) => {
-    let duties;
-    const {expansion, sort} = req.query;
+    const data = _prepareData(req.query);
 
-    if (expansion === 'ALL') {
-        duties = await dutyModel
-            .find()
-            .sort({level: sort, iLevel: sort});
-    } else {
-        duties = await dutyModel
-            .find({patchName: expansion})
-            .sort({level: sort, iLevel: sort});
-    }
-
-    res.json(duties);
+    res.json(await dutyModel.find(data.find).sort(data.sort));
 };
 
-module.exports.getDutiesByName = async (req, res, dutyModel) => {
-    const {name, sort} = req.query;
+const _prepareData = (query) => {
+    const {expansion, name, sort} = query;
 
-    const duties = await dutyModel
-        .find({name: {$regex: name}})
-        .sort({level: sort})
-
-    res.json(duties);
-}
+    if (expansion === 'ALL') {
+        return {
+            find: name ? {$regex: name} : null,
+            sort: {level: sort, iLevel: sort}
+        }
+    } else {
+        return {
+            find: name ? {patchName: expansion, name:{$regex: name}} : {patchName: expansion},
+            sort: {level: sort, iLevel: sort}
+        }
+    }
+};

@@ -1,42 +1,25 @@
 import Duty from "../../../models/duty.model";
 import {Grid} from "@mui/material";
 import DutyCard from "./duty-card/duty-card";
-import {getAllDutiesAPI, getDutiesByNameAPI} from "../../../api/duties-api/duties-api";
+import {getAllDutiesAPI} from "../../../api/duties-api/duties-api";
 import {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
 import DutyCardsEmpty from "./duty-cards-empty/duty-cards-empty";
 import {useSearchParams} from "react-router-dom";
 import {AxiosResponse} from "axios";
 
 const DutyCards = () => {
     const [duties, setDuties] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
-    const storeFilters = useSelector((state: any) => state.filters);
+    const [searchParams] = useSearchParams();
 
-    const isFiltersSelected = storeFilters.dutyFilter !== '' && storeFilters.expansionFilter;
+    const isFiltersSelected = searchParams.get('duty') && searchParams.get('expansion') && searchParams.get('sort');
 
     useEffect(() => {
         if (isFiltersSelected) {
-            setSearchParams({
-                duty: storeFilters.dutyFilter,
-                expansion: storeFilters.expansionFilter,
-                sort: storeFilters.sortFilter
+            getAllDutiesAPI(searchParams).then((data: AxiosResponse<Duty[]>) => {
+                setDuties(data.data);
             })
-
-            if (storeFilters.searchFilter) {
-                searchParams.set('search', storeFilters.searchFilter);
-                setSearchParams(searchParams);
-
-                getDutiesByNameAPI(storeFilters).then((data: AxiosResponse<Duty[]>) => {
-                    setDuties(data.data);
-                })
-            } else {
-                getAllDutiesAPI(storeFilters).then((data: AxiosResponse<Duty[]>) => {
-                    setDuties(data.data);
-                })
-            }
         }
-    }, [storeFilters]);
+    }, [searchParams]);
 
     return (
         <>

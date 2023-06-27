@@ -2,28 +2,30 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {SelectChangeEvent} from "@mui/material/Select";
 import {DutiesFilterModel} from "../../../../models/filters.model";
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {setDutiesFilter} from "../../../../redux/reducers/filters/filters";
 import {useSearchParams} from "react-router-dom";
 
 const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
     const { dutiesFilter } = props;
 
-    const dispatch = useDispatch();
-    const dutyQuery = useSearchParams()[0].get('duty');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const dutyQuery = searchParams.get('duty');
     const [value, setValue] = useState(dutyQuery || '');
 
     useEffect(() => {
-        handleDutyFilter(dutyQuery || '');
-    },[dutyQuery]);
+        handleDutyFilter(dutyQuery);
+    },[!dutyQuery]);
 
     const handleChange = (event: SelectChangeEvent) => {
         handleDutyFilter(event.target.value);
     }
 
     const handleDutyFilter = (value: string) => {
-        setValue(value);
-        dispatch(setDutiesFilter(value));
+        setValue(value || '');
+
+        if (value) {
+            searchParams.set('duty', value);
+            setSearchParams(searchParams);
+        }
     }
 
     return (
