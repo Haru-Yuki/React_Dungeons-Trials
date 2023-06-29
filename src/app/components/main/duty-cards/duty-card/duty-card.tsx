@@ -97,9 +97,6 @@ const DutyCard = (props: Duty) => {
                     expand={expanded}
                     onClick={handleExpandClick}
                 >
-                    <Typography>
-                        Show description
-                    </Typography>
                     <ExpandMoreIcon />
                 </ExpandMore>
             </CardActions>
