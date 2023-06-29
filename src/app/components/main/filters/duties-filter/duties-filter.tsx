@@ -10,6 +10,7 @@ const DutiesFilter = (props: {dutiesFilter: Array<DutiesFilterModel>}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const dutyQuery = searchParams.get('duty');
     const [value, setValue] = useState(dutyQuery || '');
+    console.count('Duties');
 
     useEffect(() => {
         handleDutyFilter(dutyQuery);

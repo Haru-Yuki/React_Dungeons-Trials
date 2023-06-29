@@ -1,10 +1,3 @@
-export interface FiltersQueryModel {
-    name?: string,
-    duty: string,
-    expansion: string,
-    sort: string
-}
-
 export interface ExpansionFilterModel {
     filterName: string,
     value: string,

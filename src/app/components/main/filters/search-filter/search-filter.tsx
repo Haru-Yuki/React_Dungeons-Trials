@@ -5,9 +5,8 @@ import {useSearchParams} from "react-router-dom";
 
 const SearchFilter = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const searchQuery = searchParams.get('search');
+    const searchQuery = searchParams.get('name');
     const [value, setValue] = useState(searchQuery || '');
-
     const [timer, setTimer] = useState(null);
 
     const isFiltersSelected = searchParams.get('duty') && searchParams.get('expansion') && searchParams.get('sort');
@@ -27,7 +26,7 @@ const SearchFilter = () => {
 
         const timerId = setTimeout(() => {
             if (value) {
-                searchParams.set('name', value);
+                searchParams.set('name', value.trim());
             } else {
                 searchParams.delete('name');
             }

@@ -1,7 +1,10 @@
 import {Alert} from "@mui/material";
 import styles from '../../../../../styles/components/main/duty-cards/duty-cards-empty/duty-cards-empty.module.scss';
 
-const DutyCardsEmpty = () => {
+const DutyCardsEmpty = (props: {isFiltersSelected: boolean}) => {
+    const {isFiltersSelected} = props;
+    const message = !isFiltersSelected ? 'Please, choose a Duty type and Expansion' : 'No duties found';
+
     return (
         <section className={styles.dutyCardsEmpty}>
             <Alert icon={false} severity="warning" variant="filled" sx={{
@@ -13,7 +16,7 @@ const DutyCardsEmpty = () => {
                 backgroundColor: 'rgba(0, 0, 0, 0.5)',
                 borderRadius: '10px'
             }}>
-                Please, choose a Duty type and Expansion
+                {message}
             </Alert>
         </section>
     )

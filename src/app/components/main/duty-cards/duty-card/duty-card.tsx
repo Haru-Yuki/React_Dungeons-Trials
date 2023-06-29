@@ -67,25 +67,25 @@ const DutyCard = (props: Duty) => {
                         width: '108%'
                     }}
                 />
-                <CardContent>
-                    <Typography gutterBottom variant='h5' sx={{
-                        textAlign: 'center',
-                        minHeight: '60px',
-                        marginBottom: '10px'
-                    }}>
-                        {name}
-                    </Typography>
-                    <Typography paragraph sx={{float: 'right'}}>
-                        Level: {level}
-                    </Typography>
-                    <Typography paragraph sx={{float: 'right', marginRight: '10px'}}>
-                        IL: {iLevel ? iLevel: '-'}
-                    </Typography>
-                    <Typography paragraph>
-                        Patch: {patchName}
-                    </Typography>
-                </CardContent>
             </CardActionArea>
+            <CardContent>
+                <Typography gutterBottom variant='h5' sx={{
+                    textAlign: 'center',
+                    minHeight: '60px',
+                    marginBottom: '10px'
+                }}>
+                    {name}
+                </Typography>
+                <Typography paragraph sx={{float: 'right'}}>
+                    Level: {level}
+                </Typography>
+                <Typography paragraph sx={{float: 'right', marginRight: '10px'}}>
+                    IL: {iLevel ? iLevel: '-'}
+                </Typography>
+                <Typography paragraph>
+                    Patch: {patchName}
+                </Typography>
+            </CardContent>
             <CardActions sx={{justifyContent: 'space-evenly'}}>
                 {isLoggedIn &&
                     <>
@@ -97,6 +97,9 @@ const DutyCard = (props: Duty) => {
                     expand={expanded}
                     onClick={handleExpandClick}
                 >
+                    <Typography>
+                        Show description
+                    </Typography>
                     <ExpandMoreIcon />
                 </ExpandMore>
             </CardActions>
