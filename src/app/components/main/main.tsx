@@ -4,7 +4,7 @@ import DutyCards from "./duty-cards/duty-cards";
 
 const Main = () => {
     return (
-        <main className={styles.main}>
+        <main className={styles.main} id="main">
             <Filters />
             <DutyCards />
         </main>
