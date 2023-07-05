@@ -1,0 +1,50 @@
+{
+  "name": "duntrixiv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.13.7",
+    "@mui/material": "^5.13.7",
+    "@types/node": "20.3.3",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "eslint": "8.44.0",
+    "eslint-config-next": "^12.0.4",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+    "next": "^13.4.8",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.14.1",
+    "sort-by": "^0.0.2",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.17",
+    "@babel/preset-react": "^7.16.7",
+    "@hookform/resolvers": "^2.9.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@types/lodash": "^4.14.182",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "axios": "^0.27.2",
+    "eslint": "^8.14.0",
+    "html-webpack-plugin": "^5.5.0",
+    "react-hook-form": "^7.31.3",
+    "react-redux": "^8.1.0",
+    "redux": "^4.2.0",
+    "sass": "^1.51.0",
+    "typescript": "^4.6.4",
+    "yup": "^0.32.11"
+  }
+}
