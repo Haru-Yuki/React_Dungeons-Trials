@@ -1,6 +1,7 @@
 export default interface Duty {
     _id?: any,
     name: string,
+    dutyType?: string | null,
     imageLink: string,
     patchName: string,
     level: number,

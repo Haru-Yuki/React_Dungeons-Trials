@@ -1,0 +1,21 @@
+.dutyBackLink {
+  &Wrapper {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+
+    &:hover {
+      cursor: pointer;
+      color: #90caf9;
+    }
+  }
+
+  &Text {
+    font-size: 20px;
+  }
+
+  &Icon {
+    font-size: 20px;
+    vertical-align: text-bottom;
+  }
+}

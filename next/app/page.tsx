@@ -3,7 +3,6 @@ import Header from "../app/src/components/header/header";
 import Main from "../app/src/components/main/main";
 import Footer from "../app/src/components/footer/footer";
 import ReduxProvider from "@/app/src/redux/provider";
-import addAPIInterceptors from "@/app/src/api/interceptors/response.interceptor";
 
 const App = () => {
     return (

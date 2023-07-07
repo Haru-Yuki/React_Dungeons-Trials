@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { getAllDungeons } = require("../../../controller/duties/dungeons/dungeons");
+const { getAllDungeons, getDungeonByName } = require("../../../controller/duties/dungeons/dungeons");
 
 router.get("/", getAllDungeons);
+router.get("/name", getDungeonByName);
 
 module.exports = router;

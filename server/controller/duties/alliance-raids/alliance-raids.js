@@ -4,3 +4,7 @@ const duties = require("../duties");
 exports.getAllAllianceRaids = (req, res) => {
     return duties.getAllDuties(req, res, AllianceRaids);
 };
+
+exports.getAllianceRaidByName = async (req, res) => {
+    return duties.getDutyByName(req, res, AllianceRaids);
+}

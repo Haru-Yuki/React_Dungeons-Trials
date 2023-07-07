@@ -1,0 +1,35 @@
+.duty {
+  &Wrapper {
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    padding: 50px 100px 0;
+    background-blend-mode: darken;
+    background: rgba(0, 0, 0, .75) url(https://i.imgur.com/ETNWAJ4.jpg) no-repeat fixed center;
+    background-size: cover;
+    min-height: calc(100vh - 50px);
+    color: white;
+  }
+
+  &Paragraph {
+    font-size: 38px;
+    margin: 5px 0;
+  }
+
+  &Description {
+    font-size: 26px;
+    font-weight: 300;
+    font-style: italic;
+    clear: both;
+    padding-top: 10px;
+    text-align: justify;
+  }
+
+  &ImageWrapper {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    float: left;
+    margin-right: 10px;
+  }
+}

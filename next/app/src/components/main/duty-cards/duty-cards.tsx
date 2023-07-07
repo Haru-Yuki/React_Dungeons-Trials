@@ -21,14 +21,17 @@ const DutyCards = () => {
     useEffect(() => {
         if (isFiltersSelected) {
             const startAPI = performance.now();
+            const searchParamsData = _prepareSearchParamsData(searchParams);
+
             setLoading(true);
 
-            getAllDutiesAPI(searchParams)
+            getAllDutiesAPI(searchParamsData)
                 .then((data: AxiosResponse<never[]>) => {
                     const endAPI = performance.now();
                     const durationAPI = endAPI - startAPI;
 
                     setDuties(data.data);
+                    sessionStorage.removeItem('urlQuery');
 
                     if (durationAPI >= showSkeletonMs) {
                         setLoading(false);
@@ -38,6 +41,15 @@ const DutyCards = () => {
                 })
         }
     }, [searchParams, isFiltersSelected]);
+
+    const _prepareSearchParamsData = (searchParams: URLSearchParams) => {
+        return {
+            duty: searchParams.get('duty') || '',
+            expansion: searchParams.get('expansion') || '',
+            sort: searchParams.get('sort') || '',
+            name: searchParams.get('name') || ''
+        }
+    }
 
     if (loading && isFiltersSelected) {
         return (
@@ -61,6 +73,7 @@ const DutyCards = () => {
                         <Grid key={duty._id} item xs={6} md={4} lg={4} xl={3}>
                             <DutyCard
                                 name={duty.name}
+                                dutyType={searchParams.get('duty')}
                                 imageLink={duty.imageLink}
                                 patchName={duty.patchName}
                                 level={duty.level}

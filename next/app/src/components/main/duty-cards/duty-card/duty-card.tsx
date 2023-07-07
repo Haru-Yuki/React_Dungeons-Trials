@@ -1,6 +1,5 @@
 import Duty from "../../../../models/duty.model";
 import {
-    Button,
     Card,
     CardActionArea,
     CardActions,
@@ -14,6 +13,8 @@ import {
 import {useState} from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Image from 'next/image'
+import Link from "next/link";
+import {useSearchParams} from "react-router-dom";
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -30,41 +31,45 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     }),
 }));
 
-const isLoggedIn = false;
-
 const DutyCard = (props: Duty) => {
     const {
         name,
+        dutyType,
         imageLink,
         patchName,
         level,
         iLevel,
-        description,
-        completed,
-        favourite
+        description
     } = props;
 
+    const [searchParams] = useSearchParams();
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
 
-    const cardBorder = isLoggedIn && completed ? '1px solid green' : 'none';
+    const handleLinkClick = () => {
+        sessionStorage.setItem('urlQuery', JSON.stringify({
+            duty: searchParams.get('duty') || '',
+            expansion: searchParams.get('expansion') || '',
+            sort: searchParams.get('sort') || '',
+            name: searchParams.get('name') || ''
+        }));
+    }
 
     return (
-        <Card sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            border: cardBorder
-        }}>
+        <Card sx={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}>
             <CardActionArea sx={{height: 250}}>
-                <Image
-                    src={imageLink}
-                    alt={name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-                >
-                </Image>
+                <Link onClick={handleLinkClick} href={`/${dutyType}/${name}`} passHref>
+                    <Image
+                        src={imageLink}
+                        alt={name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+                    >
+                    </Image>
+                </Link>
             </CardActionArea>
             <CardContent>
                 <Typography gutterBottom variant='h5' sx={{
@@ -85,12 +90,6 @@ const DutyCard = (props: Duty) => {
                 </Typography>
             </CardContent>
             <CardActions sx={{justifyContent: 'space-evenly'}}>
-                {isLoggedIn &&
-                    <>
-                        <Button variant={completed ? "contained" : "outlined"} color="success" size="small">Mark as completed</Button>
-                        <Button variant={favourite ? "contained" : "outlined"} color="warning" size="small">Mark as favourite</Button>
-                    </>
-                }
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
