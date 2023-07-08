@@ -3,12 +3,22 @@
 import {Box, Collapse, IconButton} from "@mui/material";
 import Alert from '@mui/material/Alert';
 import CloseIcon from '@mui/icons-material/Close';
-import {useState} from "react";
-import {useSelector} from "react-redux";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setToaster} from "@/app/src/redux/reducers/toaster";
 
 const Toaster = () => {
     const toasterConfig = useSelector((state: any) => state.toaster).toaster;
     const [open, setOpen] = useState(true);
+    console.log(toasterConfig);
+
+    useEffect(() => {
+        if (toasterConfig.close) {
+            setOpen(false);
+        } else {
+            setOpen(true)
+        }
+    }, [toasterConfig]);
 
     if (toasterConfig.message) {
         return (

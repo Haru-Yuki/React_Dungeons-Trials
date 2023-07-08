@@ -40,14 +40,6 @@
         "async": false
       }
     },
-    "(app-client)/./app/src/components/toaster/toaster.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/src/components/toaster/toaster.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./app/src/components/main/main.tsx": {
       "*": {
         "id": "(sc_client)/./app/src/components/main/main.tsx",
@@ -59,6 +51,14 @@
     "(app-client)/./app/src/redux/provider.tsx": {
       "*": {
         "id": "(sc_client)/./app/src/redux/provider.tsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/src/components/toaster/toaster.tsx": {
+      "*": {
+        "id": "(sc_client)/./app/src/components/toaster/toaster.tsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -147,11 +147,11 @@
       ],
       "async": false
     },
-    "/Users/dimakred/Desktop/DuntriXIV/next/app/src/components/toaster/toaster.tsx": {
-      "id": "(app-client)/./app/src/components/toaster/toaster.tsx",
+    "/Users/dimakred/Desktop/DuntriXIV/next/app/styles/global.scss": {
+      "id": "(app-client)/./app/styles/global.scss",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
@@ -211,21 +211,21 @@
       ],
       "async": false
     },
-    "/Users/dimakred/Desktop/DuntriXIV/next/app/styles/global.scss": {
-      "id": "(app-client)/./app/styles/global.scss",
+    "/Users/dimakred/Desktop/DuntriXIV/next/app/src/components/toaster/toaster.tsx": {
+      "id": "(app-client)/./app/src/components/toaster/toaster.tsx",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     }
   },
   "entryCSSFiles": {
-    "/Users/dimakred/Desktop/DuntriXIV/next/app/page": [
-      "static/css/app/page.css"
-    ],
     "/Users/dimakred/Desktop/DuntriXIV/next/app/layout": [
       "static/css/app/layout.css"
+    ],
+    "/Users/dimakred/Desktop/DuntriXIV/next/app/page": [
+      "static/css/app/page.css"
     ]
   }
 }

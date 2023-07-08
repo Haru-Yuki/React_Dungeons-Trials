@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const toasterInitialState = {
     toaster: {
         type: 'success',
-        message: ''
+        message: '',
+        close: false
     }
 }
 
