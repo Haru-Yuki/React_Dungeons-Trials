@@ -3,7 +3,7 @@ import styles from '../../../../../styles/components/main/duty-cards/duty-cards-
 
 const DutyCardsEmpty = (props: {isFiltersSelected: boolean}) => {
     const {isFiltersSelected} = props;
-    const message = !isFiltersSelected ? 'Please, choose a Duty type and Expansion' : 'No [duty] found';
+    const message = !isFiltersSelected ? 'Please, choose a Duty type and Expansion' : 'No duty found';
 
     return (
         <section className={styles.dutyCardsEmpty}>

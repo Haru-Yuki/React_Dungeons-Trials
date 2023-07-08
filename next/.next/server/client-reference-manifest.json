@@ -63,22 +63,6 @@
         "chunks": [],
         "async": false
       }
-    },
-    "(app-client)/./node_modules/next/dist/client/image-component.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/next/dist/client/image-component.js",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
-    "(app-client)/./app/[duty]/[dutyName]/duty-back-link/duty-back-link.tsx": {
-      "*": {
-        "id": "(sc_client)/./app/[duty]/[dutyName]/duty-back-link/duty-back-link.tsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
     }
   },
   "edgeSSRModuleMapping": {},
@@ -234,38 +218,6 @@
         "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
-    },
-    "/Users/dimakred/Desktop/DuntriXIV/next/node_modules/next/dist/client/image-component.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
-      "name": "*",
-      "chunks": [
-        "app/[duty]/[dutyName]/page:static/chunks/app/[duty]/[dutyName]/page.js"
-      ],
-      "async": false
-    },
-    "/Users/dimakred/Desktop/DuntriXIV/next/node_modules/next/dist/esm/client/image-component.js": {
-      "id": "(app-client)/./node_modules/next/dist/client/image-component.js",
-      "name": "*",
-      "chunks": [
-        "app/[duty]/[dutyName]/page:static/chunks/app/[duty]/[dutyName]/page.js"
-      ],
-      "async": false
-    },
-    "/Users/dimakred/Desktop/DuntriXIV/next/app/styles/app/[duty]/[dutyName]/duty.module.scss": {
-      "id": "(app-client)/./app/styles/app/[duty]/[dutyName]/duty.module.scss",
-      "name": "*",
-      "chunks": [
-        "app/[duty]/[dutyName]/page:static/chunks/app/[duty]/[dutyName]/page.js"
-      ],
-      "async": false
-    },
-    "/Users/dimakred/Desktop/DuntriXIV/next/app/[duty]/[dutyName]/duty-back-link/duty-back-link.tsx": {
-      "id": "(app-client)/./app/[duty]/[dutyName]/duty-back-link/duty-back-link.tsx",
-      "name": "*",
-      "chunks": [
-        "app/[duty]/[dutyName]/page:static/chunks/app/[duty]/[dutyName]/page.js"
-      ],
-      "async": false
     }
   },
   "entryCSSFiles": {
@@ -274,9 +226,6 @@
     ],
     "/Users/dimakred/Desktop/DuntriXIV/next/app/layout": [
       "static/css/app/layout.css"
-    ],
-    "/Users/dimakred/Desktop/DuntriXIV/next/app/[duty]/[dutyName]/page": [
-      "static/css/app/[duty]/[dutyName]/page.css"
     ]
   }
 }
