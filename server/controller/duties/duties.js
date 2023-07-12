@@ -1,11 +1,13 @@
-const Joi = require('joi');
 const validationSchemas = require("../../models/validation/dutyQuery.schema");
+const Trials = require('../../models/duties/trials/trials');
+const TrialsExtreme = require('../../models/duties/trials/trials-extreme')
+const Dungeons = require('../../models/duties/dungeons/dungeons');
 
 module.exports.getAllDuties = async (req, res, dutyModel) => {
     const query = req.query;
 
     if (_validateDutyQuery(query) === true) {
-        const data = _prepareData(query);
+        const data = _prepareDataDuties(query);
 
         res.json(await dutyModel.find(data.find).sort(data.sort));
     } else {
@@ -13,13 +15,35 @@ module.exports.getAllDuties = async (req, res, dutyModel) => {
     }
 };
 
+module.exports.getAllDutiesQuest = async (req, res, dutyModel) => {
+    const query = req.query;
+    const data = _prepareDataQuests(query);
+
+    if (dutyModel.collection.collectionName === 'Trials') {
+        const trials = await Trials.find(data.find).sort(data.sort)
+
+        switch (query.quest) {
+            case 'The Four Lords':
+                const dungeons = await Dungeons.find(data.find).sort(data.sort);
+                res.json(dungeons.concat(trials));
+                return;
+            case 'Primal':
+                const trialsExtreme = await TrialsExtreme.find(data.find).sort(data.sort);
+                res.json(trialsExtreme.concat(trials));
+                return;
+        }
+    }
+
+    res.json(await dutyModel.find(data.find).sort(data.sort));
+}
+
 module.exports.getDutyByName = async (req, res, dutyModel) => {
   const {name} = req.query;
 
   res.json(await dutyModel.findOne({name}));
 };
 
-const _prepareData = (query) => {
+const _prepareDataDuties = (query) => {
     const {expansion, name, sort} = query;
 
     if (expansion === 'ALL') {
@@ -40,4 +64,13 @@ const _validateDutyQuery = (query) => {
     const valid = error === undefined;
 
     return valid || error;
+};
+
+const _prepareDataQuests = (query) => {
+    const {quest, name} = query;
+
+    return {
+        find: name? {quest, name:{$regex: name}} : {quest},
+        sort: {level: 'asc', iLevel: 'asc'}
+    }
 }

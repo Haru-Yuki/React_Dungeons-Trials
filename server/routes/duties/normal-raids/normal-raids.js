@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { getAllNormalRaids, getNormalRaidByName } = require("../../../controller/duties/normal-raids/normal-raids");
+const { getAllNormalRaids, getNormalRaidByName, getAllNormalRaidsQuest } = require("../../../controller/duties/normal-raids/normal-raids");
 
-router.get("/", getAllNormalRaids);
-router.get("/name/", getNormalRaidByName);
+router.get("/duties", getAllNormalRaids);
+router.get("/duties/name", getNormalRaidByName);
+
+router.get("/quests", getAllNormalRaidsQuest);
 
 module.exports = router;
