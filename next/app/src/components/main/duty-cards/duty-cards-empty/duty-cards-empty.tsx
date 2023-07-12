@@ -1,9 +1,13 @@
 import {Alert} from "@mui/material";
 import styles from '../../../../../styles/components/main/duty-cards/duty-cards-empty/duty-cards-empty.module.scss';
+import {useSearchParams} from "react-router-dom";
 
 const DutyCardsEmpty = (props: {isFiltersSelected: boolean}) => {
     const {isFiltersSelected} = props;
-    const message = !isFiltersSelected ? 'Please, choose a Duty type and Expansion' : 'No duty found';
+    const [searchParams] = useSearchParams();
+    const message = !isFiltersSelected ?
+        `Please, choose a Duty type and ${searchParams.get('type') === 'Duties' ? 'Expansion' : 'Quest Line'}` :
+        'No duty found';
 
     return (
         <section className={styles.dutyCardsEmpty}>

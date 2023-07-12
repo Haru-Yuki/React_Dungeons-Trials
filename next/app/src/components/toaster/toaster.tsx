@@ -10,7 +10,6 @@ import {setToaster} from "@/app/src/redux/reducers/toaster";
 const Toaster = () => {
     const toasterConfig = useSelector((state: any) => state.toaster).toaster;
     const [open, setOpen] = useState(true);
-    console.log(toasterConfig);
 
     useEffect(() => {
         if (toasterConfig.close) {

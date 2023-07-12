@@ -6,10 +6,12 @@ import {useSearchParams} from "react-router-dom";
 const SearchFilter = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const searchQuery = searchParams.get('name');
+    const typeQuery = searchParams.get('type');
     const [value, setValue] = useState(searchQuery || '');
     const [timer, setTimer] = useState(0);
 
-    const isFiltersSelected = searchParams.get('duty') && searchParams.get('expansion') && searchParams.get('sort');
+    const isFiltersDutySelected = !!searchParams.get('duty') && !!searchParams.get('expansion') && !!searchParams.get('sort');
+    const isFiltersQuestSelected = !!searchParams.get('duty') && !!searchParams.get('quest');
 
     useEffect(() => {
         handleSearchFilter(value);
@@ -40,15 +42,15 @@ const SearchFilter = () => {
     return (
         <Grid container sx={{width: '100%', justifyContent: 'center', marginTop: '10px'}}>
             <TextField
-                disabled={!isFiltersSelected}
-                id="outlined-controlled"
+                disabled={!isFiltersDutySelected && !isFiltersQuestSelected}
+                id="search"
                 label="Enter duty name"
                 value={value}
                 onChange={handleChange}
                 InputProps={{
                     endAdornment: <InputAdornment position="end"><SearchIcon /></InputAdornment>,
                 }}
-                sx={{width: '20%'}}
+                sx={{width: '25%'}}
             />
         </Grid>
     )

@@ -1,0 +1,39 @@
+.filters{
+  &Type {
+    &Wrapper{
+      color: white;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &Label{
+      margin: 0 10px;
+      font-size: 48px;
+      font-weight: 500;
+
+      &:first-child {
+        margin-left: 30px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: #90caf9;
+      }
+    }
+
+    &Radio {
+      display: none;
+
+      &:checked + label {
+        color: #90caf9;
+      }
+    }
+
+    &Divider {
+      width: 3px;
+      background-color: white;
+      margin: 0 10px;
+    }
+  }
+}

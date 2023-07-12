@@ -7,7 +7,8 @@ const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) 
     const { expansionFilter } = props;
 
     const [searchParams, setSearchParams] = useSearchParams();
-    const expansionQuery = searchParams.get('expansion');
+    const typeQuery = searchParams.get('type');
+    const expansionQuery = typeQuery === 'Duties' ? searchParams.get('expansion') : searchParams.get('quest');
     const isDutySelected = !!searchParams.get('duty');
     const [value, setValue] = useState(expansionQuery || false);
 
@@ -23,8 +24,16 @@ const ExpansionFilter = (props: {expansionFilter: Array<ExpansionFilterModel>}) 
         setValue(value || false);
 
         if (value) {
-            searchParams.set('expansion', value);
-            setSearchParams(searchParams);
+            switch (typeQuery) {
+                case 'Duties':
+                    searchParams.set('expansion', value);
+                    setSearchParams(searchParams);
+                    break;
+                case 'Quests':
+                    searchParams.set('quest', value);
+                    setSearchParams(searchParams);
+                    break;
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 import Duty from "../../../models/duty.model";
 import {Grid} from "@mui/material";
 import DutyCard from "./duty-card/duty-card";
-import {getAllDutiesAPI} from "../../../api/duties-api/duties-api";
+import {getAllDutiesAPI, getAllQuestsAPI} from "../../../api/duties-api/duties-api";
 import {useEffect, useState} from "react";
 import DutyCardsEmpty from "./duty-cards-empty/duty-cards-empty";
 import {useSearchParams} from "react-router-dom";
@@ -16,33 +16,52 @@ const DutyCards = () => {
     const [loading, setLoading] = useState(true);
     const [searchParams] = useSearchParams();
 
-    const isFiltersSelected = !!searchParams.get('duty') && !!searchParams.get('expansion') && !!searchParams.get('sort');
+    const isFiltersDutySelected = !!searchParams.get('duty') && !!searchParams.get('expansion') && !!searchParams.get('sort');
+    const isFiltersQuestSelected = !!searchParams.get('duty') && !!searchParams.get('quest');
 
     useEffect(() => {
-        if (isFiltersSelected) {
+        if (isFiltersDutySelected) {
             const startAPI = performance.now();
-            const searchParamsData = _prepareSearchParamsData(searchParams);
+            const searchParamsData = _prepareDutiesSearchParamsData(searchParams);
 
             setLoading(true);
 
             getAllDutiesAPI(searchParamsData)
                 .then((data: AxiosResponse<never[]>) => {
-                    const endAPI = performance.now();
-                    const durationAPI = endAPI - startAPI;
-
-                    setDuties(data.data);
-                    sessionStorage.removeItem('urlQuery');
-
-                    if (durationAPI >= showSkeletonMs) {
-                        setLoading(false);
-                    } else {
-                        setTimeout(setLoading, showSkeletonMs, false);
-                    }
+                    _setDuties(startAPI, data);
                 })
         }
-    }, [searchParams, isFiltersSelected]);
+    }, [searchParams, isFiltersDutySelected]);
 
-    const _prepareSearchParamsData = (searchParams: URLSearchParams) => {
+    useEffect(() => {
+        if (isFiltersQuestSelected) {
+            const startAPI = performance.now();
+            const searchParamsData = _prepareQuestsSearchParamsData(searchParams);
+
+            setLoading(true);
+
+            getAllQuestsAPI(searchParamsData)
+                .then((data: AxiosResponse<never[]>) => {
+                    _setDuties(startAPI, data);
+                })
+        }
+    }, [searchParams, isFiltersQuestSelected]);
+
+    const _setDuties = (startAPI: number, data:AxiosResponse<never[]>) => {
+        const endAPI = performance.now();
+        const durationAPI = endAPI - startAPI;
+
+        setDuties(data.data);
+        sessionStorage.removeItem('urlQuery');
+
+        if (durationAPI >= showSkeletonMs) {
+            setLoading(false);
+        } else {
+            setTimeout(setLoading, showSkeletonMs, false);
+        }
+    }
+
+    const _prepareDutiesSearchParamsData = (searchParams: URLSearchParams) => {
         return {
             duty: searchParams.get('duty') || '',
             expansion: searchParams.get('expansion') || '',
@@ -51,7 +70,15 @@ const DutyCards = () => {
         }
     }
 
-    if (loading && isFiltersSelected) {
+    const _prepareQuestsSearchParamsData = (searchParams: URLSearchParams) => {
+        return {
+            duty: searchParams.get('duty') || '',
+            quest: searchParams.get('quest') || '',
+            name: searchParams.get('name') || ''
+        }
+    }
+
+    if (loading && isFiltersDutySelected) {
         return (
             <Grid container spacing={4} sx={{
                 marginTop: '30px',
@@ -64,7 +91,7 @@ const DutyCards = () => {
 
     return (
         <>
-            {isFiltersSelected && duties.length ?
+            {(isFiltersDutySelected || isFiltersQuestSelected) && duties.length ?
                 (<Grid container spacing={4} sx={{
                     marginTop: '30px',
                     padding: '0 70px 50px'
@@ -85,7 +112,7 @@ const DutyCards = () => {
                         </Grid>
                     )}
                 </Grid>) :
-                (<DutyCardsEmpty isFiltersSelected={isFiltersSelected} />)
+                (<DutyCardsEmpty isFiltersSelected={isFiltersDutySelected} />)
             }
         </>
     )

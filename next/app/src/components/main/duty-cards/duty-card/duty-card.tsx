@@ -34,16 +34,22 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 const DutyCard = (props: Duty) => {
     const {
         name,
-        dutyType,
         imageLink,
         patchName,
         level,
         iLevel,
         description
     } = props;
+    let { dutyType } = props;
 
     const [searchParams] = useSearchParams();
     const [expanded, setExpanded] = useState(false);
+    const fourLordsDungeons = ['Hells\' Lid', 'The Swallow\'s Compass'];
+    const primalsTrialsExtreme = ['The Howling Eye (Extreme)', 'The Navel (Extreme)', 'The Bowl of Embers (Extreme)', 'Thornmarch (Extreme)', 'The Whorleater (Extreme)', 'The Striking Tree (Extreme)', 'The Akh Afah Amphitheatre (Extreme)'];
+
+
+    if (fourLordsDungeons.includes(name)) dutyType = 'Dungeons';
+    if (primalsTrialsExtreme.includes(name)) dutyType = 'Trials-extreme';
 
     const handleExpandClick = () => {
         setExpanded(!expanded);

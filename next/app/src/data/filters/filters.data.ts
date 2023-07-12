@@ -1,4 +1,4 @@
-export const ExpansionFilterData = {
+export const ExpansionFilterData : {[index: string]:any} = {
     duties: [
         {
             filterName: 'Show All',
@@ -32,7 +32,7 @@ export const ExpansionFilterData = {
         }
     ],
     quests: {
-        Trials: [
+        'Trials': [
             {
                 filterName: 'Primal Quests',
                 value: 'Primal',
@@ -47,12 +47,66 @@ export const ExpansionFilterData = {
                 filterName: 'The Four Lords',
                 value: 'The Four Lords',
                 key: 'ef9'
-            },,
+            },
             {
                 filterName: 'The Sorrow of Werlyt',
                 value: 'The Sorrow of Werlyt',
                 key: 'ef10'
+            }
+        ],
+        'NormalRaids': [
+            {
+                filterName: 'Bahamut',
+                value: 'Bahamut',
+                key: 'ef11'
             },
+            {
+                filterName: 'Alexander',
+                value: 'Alexander',
+                key: 'ef12'
+            },
+            {
+                filterName: 'Omega',
+                value: 'Omega',
+                key: 'ef13'
+            },
+            {
+                filterName: 'Eden',
+                value: 'Eden',
+                key: 'ef14'
+            },
+            {
+                filterName: 'Pandæmonium',
+                value: 'Pandæmonium',
+                key: 'ef15'
+            }
+        ],
+        'AllianceRaids': [
+            {
+                filterName: 'Crystal Tower',
+                value: 'Crystal Tower',
+                key: 'ef16'
+            },
+            {
+                filterName: 'Shadow of Mhach',
+                value: 'Shadow of Mhach',
+                key: 'ef17'
+            },
+            {
+                filterName: 'Return to Ivalice',
+                value: 'Return to Ivalice',
+                key: 'ef18'
+            },
+            {
+                filterName: 'YoRHa: Dark Apocalypse',
+                value: 'YoRHa: Dark Apocalypse',
+                key: 'ef19'
+            },
+            {
+                filterName: 'Myths of the Realm',
+                value: 'Myths of the Realm',
+                key: 'ef20'
+            }
         ]
     }
 };
